@@ -5,3 +5,7 @@ This app is not very screen responsive by which i mean it wont look uniform on d
 e.g pixel 4 emulator and iphone 14 pro max emulator, nexus 7 tablet emulator, ipad 12.9 inches
 
 So i want this app to look consistent on any screen size, so use any means you deem necessary to make it responsive on all devices, just don't change any logic and work only on UI.
+
+Try to make small commits meaning commit changes of one screen when its done and so on and try to add a little description.
+
+After you are done with this small task we will have a short meeting on your approach and move further.
