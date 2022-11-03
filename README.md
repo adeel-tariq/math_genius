@@ -1,16 +1,7 @@
-# math_genius
+This app is simple math problems game i made for learning purpose.
+Not much complex and no network or persistent storage etc used plain simple math problems.
 
-A new Flutter application.
+This app is not very screen responsive by which i mean it wont look uniform on different devices
+e.g pixel 4 emulator and iphone 14 pro max emulator, nexus 7 tablet emulator, ipad 12.9 inches
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+So i want this app to look consistent on any screen size, so use any means you deem necessary to make it responsive on all devices, just don't change any logic and work only on UI.
