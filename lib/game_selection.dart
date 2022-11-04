@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:math_genius/responsive/responsive_helper.dart';
 import 'dart:ui' as ui;
 
 import 'addition_math_game.dart';
@@ -13,9 +14,7 @@ import 'subtraction_math_game.dart';
 class GameSelectionPage extends StatefulWidget {
   int difficulty;
 
-  GameSelectionPage(
-      {Key key, @required this.difficulty})
-      : super(key: key);
+  GameSelectionPage({Key key, @required this.difficulty}) : super(key: key);
 
   @override
   GameSelectionView createState() => new GameSelectionView(difficulty);
@@ -69,31 +68,30 @@ class GameSelectionView extends State<GameSelectionPage> {
               left: mediaQueryData.size.width * .07,
               right: mediaQueryData.size.width * .07,
               child: Stack(
+                alignment: Alignment.center,
                 children: <Widget>[
                   Image.asset(
                     'assets/images/selection_background.png',
                     fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    top: mediaQueryData.size.height * .08,
-                    left: mediaQueryData.size.width * .05,
-                    right: mediaQueryData.size.width * .1,
-                    child: Column(
-                      children: <Widget>[
+                  Column(
+                    children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           GestureDetector(
                             onTap: () => {_showDialog(1)},
                             child: Container(
+                              // margin: EdgeInsets.only(
+                              //     left: (mediaQueryData.size.width * .04),),
                               width: mediaQueryData.size.width * .28,
                               // height: mediaQueryData.size.width * .5,
                               child: Column(
                                 children: <Widget>[
                                   Container(
-                                    margin: EdgeInsets.only(left: (mediaQueryData.size.width * .04)),
                                     child: Center(
                                       child: Image.asset(
+                                        // 'assets/images/addition_game.png',
                                         'assets/images/addition_game.png',
                                         fit: BoxFit.fill,
                                         // width: mediaQueryData.size.width * .010,
@@ -101,6 +99,32 @@ class GameSelectionView extends State<GameSelectionPage> {
                                       ),
                                     ),
                                   ),
+                                  // Container(
+                                  //   color: Colors.amberAccent,
+                                  //   height: 20,
+                                  // ),
+
+                                  // Container(
+                                  //   width: mediaQueryData.size.width * .28,
+                                  //   height: mediaQueryData.size.width * .1,
+                                  //   decoration: BoxDecoration(
+                                  //     color: const Color(0xff98B29B),
+                                  //     borderRadius: BorderRadius.all(
+                                  //       Radius.circular(
+                                  //         6.5,
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  //   child: Text(
+                                  //     'Addition',
+                                  //     textAlign: TextAlign.center,
+                                  //     style: TextStyle(
+                                  //         color: Colors.white,
+                                  //         fontWeight: FontWeight.normal,
+                                  //         fontSize: 22),
+                                  //   ),
+                                  // ),
+
                                   Stack(
                                     children: <Widget>[
                                       Center(
@@ -121,8 +145,10 @@ class GameSelectionView extends State<GameSelectionPage> {
                                       ),
                                       Positioned(
                                         child: Container(
-                                          width: mediaQueryData.size.width * .28,
-                                          height: mediaQueryData.size.width * .1,
+                                          width:
+                                              mediaQueryData.size.width * .28,
+                                          height:
+                                              mediaQueryData.size.width * .1,
                                           child: Center(
                                             child: Text(
                                               'Addition',
@@ -148,22 +174,23 @@ class GameSelectionView extends State<GameSelectionPage> {
                               // height: mediaQueryData.size.width * .5,
                               child: Column(
                                 children: <Widget>[
-                                  Container(
-                                    child: Center(
-                                      child: Image.asset(
-                                        'assets/images/subtraction_game.png',
-                                        fit: BoxFit.fill,
-                                        // width: mediaQueryData.size.width * .010,
-                                        // height: mediaQueryData.size.width * .30,
-                                      ),
+                                  Center(
+                                    child: Image.asset(
+                                      'assets/images/subtraction_game.png',
+                                      fit: BoxFit.fill,
+                                      // width: mediaQueryData.size.width * .010,
+                                      // height: mediaQueryData.size.width * .30,
                                     ),
                                   ),
                                   Stack(
+                                    alignment: Alignment.center,
                                     children: <Widget>[
                                       Center(
                                         child: Container(
-                                          width: mediaQueryData.size.width * .28,
-                                          height: mediaQueryData.size.width * .1,
+                                          width:
+                                              mediaQueryData.size.width * .28,
+                                          height:
+                                              mediaQueryData.size.width * .1,
                                           decoration: BoxDecoration(
                                             color: const Color(0xff98B29B),
                                             borderRadius: BorderRadius.all(
@@ -172,15 +199,10 @@ class GameSelectionView extends State<GameSelectionPage> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        child: Container(
-                                          width: mediaQueryData.size.width * .35,
-                                          height: mediaQueryData.size.width * .1,
                                           child: Center(
                                             child: Text(
                                               'Subtraction',
+                                              maxLines: 1,
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   color: Colors.white,
@@ -190,6 +212,25 @@ class GameSelectionView extends State<GameSelectionPage> {
                                           ),
                                         ),
                                       ),
+                                      // Positioned(
+                                      //   child: Container(
+                                      //     width:
+                                      //         mediaQueryData.size.width * .35,
+                                      //     height:
+                                      //         mediaQueryData.size.width * .1,
+                                      //     child: Center(
+                                      //       child: Text(
+                                      //         'Subtraction',
+                                      //         textAlign: TextAlign.center,
+                                      //         style: TextStyle(
+                                      //             color: Colors.white,
+                                      //             fontWeight:
+                                      //                 FontWeight.normal,
+                                      //             fontSize: 22),
+                                      //       ),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ],
@@ -222,11 +263,14 @@ class GameSelectionView extends State<GameSelectionPage> {
                                     ),
                                   ),
                                   Stack(
+                                    alignment: Alignment.center,
                                     children: <Widget>[
                                       Center(
                                         child: Container(
-                                          width: mediaQueryData.size.width * .35,
-                                          height: mediaQueryData.size.width * .1,
+                                          width:
+                                              mediaQueryData.size.width * .35,
+                                          height:
+                                              mediaQueryData.size.width * .1,
                                           decoration: BoxDecoration(
                                             color: const Color(0xff98B29B),
                                             borderRadius: BorderRadius.all(
@@ -235,16 +279,11 @@ class GameSelectionView extends State<GameSelectionPage> {
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        child: Container(
-                                          width: mediaQueryData.size.width * .28,
-                                          height: mediaQueryData.size.width * .1,
                                           child: Center(
                                             child: Text(
                                               'Multiplication',
                                               textAlign: TextAlign.center,
+                                              maxLines: 1,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.normal,
@@ -253,6 +292,26 @@ class GameSelectionView extends State<GameSelectionPage> {
                                           ),
                                         ),
                                       ),
+
+                                      // Positioned(
+                                      //   child: Container(
+                                      //     width:
+                                      //         mediaQueryData.size.width * .28,
+                                      //     height:
+                                      //         mediaQueryData.size.width * .1,
+                                      //     child: Center(
+                                      //       child: Text(
+                                      //         'Multiplication',
+                                      //         textAlign: TextAlign.center,
+                                      //         style: TextStyle(
+                                      //             color: Colors.white,
+                                      //             fontWeight:
+                                      //                 FontWeight.normal,
+                                      //             fontSize: 22),
+                                      //       ),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ],
@@ -279,11 +338,14 @@ class GameSelectionView extends State<GameSelectionPage> {
                                     ),
                                   ),
                                   Stack(
+                                    alignment: Alignment.center,
                                     children: <Widget>[
                                       Center(
                                         child: Container(
-                                          width: mediaQueryData.size.width * .35,
-                                          height: mediaQueryData.size.width * .1,
+                                          width:
+                                              mediaQueryData.size.width * .35,
+                                          height:
+                                              mediaQueryData.size.width * .1,
                                           decoration: BoxDecoration(
                                             color: const Color(0xff98B29B),
                                             borderRadius: BorderRadius.all(
@@ -294,22 +356,35 @@ class GameSelectionView extends State<GameSelectionPage> {
                                           ),
                                         ),
                                       ),
-                                      Positioned(
-                                        child: Container(
-                                          width: mediaQueryData.size.width * .28,
-                                          height: mediaQueryData.size.width * .1,
-                                          child: Center(
-                                            child: Text(
-                                              'Division',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.normal,
-                                                  fontSize: 22),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+
+                                      Text(
+                                        'Division',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 22),
+                                      )
+
+                                      // Positioned(
+                                      //   child: Container(
+                                      //     width:
+                                      //         mediaQueryData.size.width * .28,
+                                      //     height:
+                                      //         mediaQueryData.size.width * .1,
+                                      //     child: Center(
+                                      //       child: Text(
+                                      //         'Division',
+                                      //         textAlign: TextAlign.center,
+                                      //         style: TextStyle(
+                                      //             color: Colors.white,
+                                      //             fontWeight:
+                                      //                 FontWeight.normal,
+                                      //             fontSize: 22),
+                                      //       ),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ],
@@ -319,7 +394,6 @@ class GameSelectionView extends State<GameSelectionPage> {
                         ],
                       ),
                     ],
-                ),
                   ),
                 ],
               ),
@@ -351,27 +425,40 @@ class GameSelectionView extends State<GameSelectionPage> {
               left: mediaQueryData.size.width * .28,
               right: mediaQueryData.size.width * .28,
               child: Stack(
+                alignment: Alignment.center,
                 children: <Widget>[
                   Image.asset(
                     'assets/images/game_select_back.png',
                     fit: BoxFit.cover,
                   ),
-                  Positioned(
-                    top: mediaQueryData.size.height * .010,
-                    left: mediaQueryData.size.height * .010,
-                    right: mediaQueryData.size.height * .010,
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "SELECT\nGAME",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.normal,
-                            fontSize: 36),
-                      ),
-                    ),
+
+                  // Adding in Positioned Widget Text no need it cause issues
+
+                  Text(
+                    "SELECT\nGAME",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: ResponsiveHelper.isMobile(context) ? 24 : 36),
                   ),
+
+                  // Positioned(
+                  //   top: mediaQueryData.size.height * .010,
+                  //   left: mediaQueryData.size.height * .010,
+                  //   right: mediaQueryData.size.height * .010,
+                  //   child: Align(
+                  //     alignment: Alignment.center,
+                  //     child: Text(
+                  //       "SELECT\nGAME",
+                  //       textAlign: TextAlign.center,
+                  //       style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontWeight: FontWeight.normal,
+                  //           fontSize: 36),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -534,26 +621,37 @@ class GameSelectionView extends State<GameSelectionPage> {
                     left: mediaQueryData.size.width * .16,
                     right: mediaQueryData.size.width * .16,
                     child: Stack(
+                      alignment: Alignment.center,
                       children: <Widget>[
                         Image.asset(
                           'assets/images/expert_back.png',
                           fit: BoxFit.cover,
                         ),
-                        Positioned(
-                          top: mediaQueryData.size.height * .025,
-                          left: mediaQueryData.size.height * .01,
-                          right: mediaQueryData.size.height * .01,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text(
-                              "No. of Questions",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 24),
-                            ),
-                          ),
-                        ),
+
+                        Text(
+                          "No. of Questions",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 24),
+                        )
+
+                        // Positioned(
+                        //   top: mediaQueryData.size.height * .025,
+                        //   left: mediaQueryData.size.height * .01,
+                        //   right: mediaQueryData.size.height * .01,
+                        //   child: Align(
+                        //     alignment: Alignment.center,
+                        //     child: Text(
+                        //       "No. of Questions",
+                        //       style: TextStyle(
+                        //           color: Colors.white,
+                        //           fontWeight: FontWeight.normal,
+                        //           fontSize: 24),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -580,12 +678,14 @@ class GameSelectionView extends State<GameSelectionPage> {
             ),
           ),
         );
-      }), context: context,
+      }),
+      context: context,
       barrierDismissible: false,
     );
   }
 
-  _navigateToGameScreen(BuildContext context, int noOfQuestions, int gameType) async {
+  _navigateToGameScreen(
+      BuildContext context, int noOfQuestions, int gameType) async {
     Navigator.pop(context);
     await Navigator.push(
       context,
@@ -593,16 +693,24 @@ class GameSelectionView extends State<GameSelectionPage> {
         builder: (context) {
           if (gameType == 1) {
             return AdditionMathGamePage(
-              difficulty: difficulty, noOfQuestions: noOfQuestions,);
+              difficulty: difficulty,
+              noOfQuestions: noOfQuestions,
+            );
           } else if (gameType == 2) {
             return SubtractionMathGamePage(
-              difficulty: difficulty, noOfQuestions: noOfQuestions,);
-          }else if (gameType == 3) {
+              difficulty: difficulty,
+              noOfQuestions: noOfQuestions,
+            );
+          } else if (gameType == 3) {
             return MultiplicationMathGamePage(
-              difficulty: difficulty, noOfQuestions: noOfQuestions,);
+              difficulty: difficulty,
+              noOfQuestions: noOfQuestions,
+            );
           } else if (gameType == 4) {
             return DivisionMathGamePage(
-              difficulty: difficulty, noOfQuestions: noOfQuestions,);
+              difficulty: difficulty,
+              noOfQuestions: noOfQuestions,
+            );
           } else {
             return null;
           }
